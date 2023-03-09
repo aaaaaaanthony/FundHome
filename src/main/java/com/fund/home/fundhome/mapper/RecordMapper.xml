@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fund.home.fundhome.mapper.RecordMapper">
+
+    <select id="queryList" resultType="com.fund.home.fundhome.model.vo.RecordVO">
+        SELECT
+            t2.`name` as catalogName,
+            t2.type as catalogType,
+            t1.id,
+            t1.amount,
+            t1.remark,
+            t1.TIME
+        FROM
+            `record` AS t1
+                LEFT JOIN catalog AS t2 ON t1.catalog_id = t2.id
+    </select>
+</mapper>

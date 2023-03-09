@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>记账</title>
+</head>
+<body>
+<div th:insert="~{index::copy}"></div>
+<table border="1">
+    <tr>
+        <td>分类</td>
+        <td>支出/收入</td>
+        <td>金额</td>
+        <td>备注</td>
+        <td>时间</td>
+    </tr>
+
+    <tr th:each="collect,iterStat : ${data}">
+        <td th:text="${collect.catalogName}"></td>
+        <td th:if="${collect.catalogType}==1">收入</td>
+        <td th:if="${collect.catalogType}==2">支出</td>
+        <td th:text="${collect.amount}"></td>
+        <td th:text="${collect.remark}"></td>
+        <td th:text="${collect.time}"></td>
+    </tr>
+</table>
+</body>
+</html>

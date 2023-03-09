@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+<div th:insert="~{index::copy}"></div>
+
+<table border="1">
+    <tr>
+        <td>账户名字</td>
+        <td>金额</td>
+        <td>货币</td>
+    </tr>
+
+    <tr th:each="collect,iterStat : ${data}">
+        <td th:text="${collect.name}"></td>
+        <td th:text="${collect.amount}"></td>
+        <td th:if="${collect.currency}==1">RMB</td>
+        <td th:if="${collect.currency}==2">美元</td>
+        <td th:if="${collect.currency}==3">披索</td>
+    </tr>
+</table>
+</body>
+</html>
